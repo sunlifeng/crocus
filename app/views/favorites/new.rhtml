@@ -1,0 +1,10 @@
+<h3>New favorite</h3>
+<div id="menu">
+<%= link_to "List Favorites" ,{ :action =>"list" } %>
+</div>
+<div id="favorite_new">
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+</div>

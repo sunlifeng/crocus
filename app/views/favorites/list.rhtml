@@ -1,0 +1,34 @@
+<h5>Listing favorites</h5>     
+
+
+<% for favorite in @favorites %>
+<div  id='favorite_list<%= favorite.id %>'>
+    <%= link_to favorite.send("description"), favorite.send("url") ,"target"=>"_top"%>
+<div class='favorite_list_control' align='right'> 
+	
+	<div class="url_detail"  id="inbox_status<%= favorite.id %>"  align='left' ></div> 
+	<%= link_to_remote 'Detail', 
+	:url => {:action => 'show', :id => favorite}, 
+	:update => 'inbox_status'+favorite.id.to_s(), 
+	:complete => "Element.hide('progress_indicator')" %> 
+
+    <%= link_to_remote 'Edit', 
+	:url => {:action => 'edit', :id => favorite}, 
+	:update => 'inbox_status'+favorite.id.to_s(), 
+	:complete => "Element.hide('progress_indicator')" %> 
+	                                                     
+	<%= link_to_remote 'Destroy', 
+	:url => {:action => 'destroy', :id => favorite}, 
+	:confirm => 'Are you sure?',
+	:update => 'favorite_list'+favorite.id.to_s(), 
+	:complete => "Element.hide('progress_indicator')" %>
+
+
+</div>
+</div>                              	
+<% end %>
+
+
+<br />
+
+<%= link_to 'New favorite', :action => 'new' %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Url:</b>
+  <%=h @favorite.url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @favorite.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @favorite.notes %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%=h @favorite.tags %>
+</p>
+
+
+<%= link_to 'Edit', edit_favorite_path(@favorite) %> |
+<%= link_to 'Back', favorites_path %>

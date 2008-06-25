@@ -1,0 +1,6 @@
+<div id="inbox_status">Unknown</div> 
+<%= link_to_remote 'Check Status...', 
+:url => {:action => 'test2', :id => @favorite}, 
+:update => 'inbox_status', 
+:before => "Element.show('progress_indicator')", 
+:complete => "Element.hide('progress_indicator')" %> 
